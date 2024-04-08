@@ -1,12 +1,8 @@
-import React from 'react'
 import styles from './checkout.module.css'
+import { useCart } from '@/hooks/use-cart'
 
-export default function CartList({
-  items = [],
-  increaseItem,
-  decreaseItem,
-  removeItem,
-}) {
+export default function CartList() {
+  const { items, increaseItem, decreaseItem, removeItem } = useCart()
   return (
     <>
       <ul className={styles['list']}>

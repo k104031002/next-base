@@ -3,7 +3,10 @@ import styles from '@/components/checkout/checkout.module.css'
 import Navbar from '@/components/checkout/navbar'
 import Link from 'next/link'
 
+import { useCart } from '@/hooks/use-cart'
+
 export default function Cart() {
+  const { totalItems, totalPrice } = useCart()
   return (
     <>
       <div className={styles['container']}>
@@ -15,9 +18,7 @@ export default function Cart() {
         </div>
         <hr />
         <div>
-          總數量:
-          {/* {totalItems}  */}/ 總金額:
-          {/* {totalPrice} */}
+          總數量: {totalItems} / 總金額: {totalPrice}
         </div>
       </div>
     </>

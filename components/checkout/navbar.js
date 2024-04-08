@@ -1,7 +1,10 @@
 import styles from './checkout.module.css'
 import { FaShoppingCart } from 'react-icons/fa'
+import { useCart } from '@/hooks/use-cart'
 
 export default function Navbar() {
+  const { totalItems } = useCart()
+
   return (
     <>
       <div className={styles['navbar']}>

@@ -1,10 +1,11 @@
 // 這裡加入的樣式會套用到所有頁面和元件中，global標記的樣式只能在這裡套用
 // import '@/styles/globals.css'
 // 3.最外(上)元件階層
-import { ThemeContext } from '@/context/theme'
-import { useState } from 'react'
-import { ThemeProvider } from '@/hooks/use-theme'
-import { AuthProvider } from '@/hooks/use-auth'
+// import { ThemeContext } from '@/context/theme'
+// import { useState } from 'react'
+// import { ThemeProvider } from '@/hooks/use-theme'
+// import { AuthProvider } from '@/hooks/use-auth'
+import { CartProvider } from '@/hooks/use-cart'
 
 export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
@@ -17,8 +18,8 @@ export default function MyApp({ Component, pageProps }) {
   //   setTheme(theme === 'light' ? 'dark' : 'light')
   // }
   return (
-    <AuthProvider>
-      <ThemeProvider>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
-    </AuthProvider>
+    <CartProvider>
+      {getLayout(<Component {...pageProps} />)}
+    </CartProvider>
   )
 }
