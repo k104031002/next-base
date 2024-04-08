@@ -49,4 +49,4 @@ export function AuthProvider({ children }) {
 }
 // 3. 提供一個包裝好的useContext名稱
 // 提供給消費者(consumer)們方便使用
-export const useTheme = () => useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext)
