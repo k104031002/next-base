@@ -1,7 +1,12 @@
 import React from 'react'
 import styles from './checkout.module.css'
 
-export default function CartList({ items, increaseItem, decreaseItem }) {
+export default function CartList({
+  items = [],
+  increaseItem,
+  decreaseItem,
+  removeItem,
+}) {
   return (
     <>
       <ul className={styles['list']}>
@@ -28,7 +33,13 @@ export default function CartList({ items, increaseItem, decreaseItem }) {
                 </button>
               </div>
               <div>
-                <button onClick={() => {}}>移除</button>
+                <button
+                  onClick={() => {
+                    removeItem(v.id)
+                  }}
+                >
+                  移除
+                </button>
               </div>
             </li>
           )
