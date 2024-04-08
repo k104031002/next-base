@@ -3,23 +3,22 @@
 // 3.最外(上)元件階層
 import { ThemeContext } from '@/context/theme'
 import { useState } from 'react'
+import { ThemeProvider } from '@/hooks/use-theme'
+import { AuthProvider } from '@/hooks/use-auth'
 
 export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout || ((page) => page)
 
   // 共享狀態，可以是 'light' | 'dark'
-  const [theme, setTheme] = useState('light')
+  // const [theme, setTheme] = useState('light')
 
-  const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light')
-  }
+  // const toggleTheme = () => {
+  //   setTheme(theme === 'light' ? 'dark' : 'light')
+  // }
   return (
-    <ThemeContext.Provider
-      // 使用value屬性提供資料給提供者階層以下的所有後代元件
-      value={{ theme, toggleTheme }}
-    >
-      {getLayout(<Component {...pageProps} />)}
-    </ThemeContext.Provider>
+    <AuthProvider>
+      <ThemeProvider>{getLayout(<Component {...pageProps} />)}</ThemeProvider>
+    </AuthProvider>
   )
 }
