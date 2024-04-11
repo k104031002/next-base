@@ -79,6 +79,17 @@ export default function ControlledForm() {
   // checkbox
   // const [checked, setChecked] = useState(false)
 
+  // select
+  const cityOptions = [
+    '台北市',
+    '新北市',
+    '桃園市',
+    '台中市',
+    '台南市',
+    '高雄市',
+  ]
+  const [city, setCity] = useState('')
+
   return (
     <>
       <h1>可控表單元件範例</h1>
@@ -214,6 +225,26 @@ export default function ControlledForm() {
             </>
           )
         })}
+      </section>
+      <section title="select">
+        <h2>下拉清單(select)</h2>
+        <select
+          value={city}
+          onChange={(e) => {
+            setCity(e.target.value)
+          }}
+        >
+          <option value="">請選擇城市</option>
+          {cityOptions.map((v, i) => {
+            return (
+              <>
+                <option key={i} value={v}>
+                  {v}
+                </option>
+              </>
+            )
+          })}
+        </select>
       </section>
     </>
   )
