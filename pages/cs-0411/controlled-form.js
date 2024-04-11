@@ -187,7 +187,11 @@ export default function ControlledForm() {
         <div>
           <input
             type="checkbox"
+            // every陣列方法，要所有的值都為true才會回傳true
+            // 為了要連動所有的項目都勾選後要設定這個值
+            // 全選並不需要額外的狀態，它的狀態為所有checkbox被選中時的計算出的狀態
             checked={petsX.every((v) => v.checked)}
+            // 強制設定所有選項物件的checked屬性，和全選的e.target.checked完全一致
             onChange={handleToggleCheckedAll}
           />
           全選
