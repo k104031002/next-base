@@ -19,9 +19,9 @@ export default function ProductList() {
     })
   }
 
-  // // 吐司
-  // const notify = (productName) =>
-  //   toast.success(productName + '已成功加入購物車!')
+  // 吐司
+  const notify = (productName) =>
+    toast.success(productName + '已成功加入購物車!')
   return (
     <>
       <ul className={styles['list']}>
@@ -49,7 +49,6 @@ export default function ProductList() {
       </ul>
       {/* 用 吐司訊息的元件 */}
       {/* <Toaster /> */}
-      
     </>
   )
 }
